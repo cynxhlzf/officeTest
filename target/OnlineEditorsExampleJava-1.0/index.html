@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ONLYOFFICE</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:900,800,700,600,500,400,300&subset=latin,cyrillic-ext,cyrillic,latin-ext" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+</head>
+<body>
+
+<div class="top-panel"></div>
+
+<div class="main-panel">
+    <span class="portal-name">ONLYOFFICE 文档 编辑器</span>
+    <br />
+    <br />
+
+    <div class="file-upload button gray">
+        <span>Choose file</span>
+        <form class="fileupload" action="server/php/" method="POST" enctype="multipart/form-data">
+
+        </form>
+        <input type="file" id="fileupload" name="file" data-url="IndexServlet?type=upload" />
+    </div>
+    <label class="save-original">
+        <input type="checkbox" id="checkOriginalFormat" class="checkbox" />Save document in original format
+    </label>
+    <span class="question"></span>
+    <br />
+    <br />
+    <br />
+    <!--从服务器上下载文档-->
+    <ul class="try-editor-list">
+        <li>
+            <a href="EditorServlet?fileExt=docx" class="try-editor document" target="_blank">
+                创建<br />样本文档
+            </a>
+        </li>
+        <li>
+            <a href="EditorServlet?fileExt=xlsx" class="try-editor spreadsheet" target="_blank">
+                创建<br />样本Excel
+            </a>
+        </li>
+        <li>
+            <a href="EditorServlet?fileExt=pptx" class="try-editor presentation" target="_blank">
+                创建<br />样本PPT
+            </a>
+        </li>
+    </ul>
+
+    <br />
+    <br />
+    <br />
+    <div class="help-block">
+        <span>onlyoffice官网</span>
+        <br />
+         <a href="https://api.onlyoffice.com/">API 文档</a>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="help-block">
+        <span>Any questions?</span>
+        <br />
+        Please, <a href="mailto:sales@onlyoffice.com">submit your request</a> and we'll help you shortly.
+    </div>
+</div>
+
+<div id="mainProgress">
+    <input type="hidden" name="hiddenFileName" id="hiddenFileName" />
+    <iframe id="embeddedView" src="" height="345px" width="600px" frameborder="0" scrolling="no" allowtransparency></iframe>
+    <br />
+    <div id="beginEmbedded" class="button">嵌入式 视图</div>
+    <div id="beginView" class="button">视图</div>
+    <div id="beginEdit" class="button">编辑</div>
+    <div id="cancelEdit" class="button gray">取消</div>
+</div>
+
+
+<script type="text/javascript" src="scripts/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/jquery.blockUI.js"></script>
+<script type="text/javascript" src="scripts/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="scripts/jquery.fileupload.js"></script>
+<script type="text/javascript" src="scripts/jquery.dropdownToggle.js"></script>
+<script type="text/javascript" src="scripts/jscript.js"></script>
+
+<!--<script language="javascript" type="text/javascript">
+
+    var ConverExtList = "<%=String.join(",", DocumentManager.GetConvertExts())%>";
+    var EditedExtList = "<%=String.join(",", DocumentManager.GetEditedExts())%>";
+
+    var UrlConverter = "IndexServlet?type=convert";
+    var UrlEditor = "EditorServlet";
+</script>-->
+
+</body>
+</html>
